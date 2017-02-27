@@ -2,9 +2,9 @@
 import java.awt.*;
 
 public class Room {
-	public int worldWidth = 20;
-	public int worldHeight = 12;
-	public int blockSize = 64;
+	public int worldWidth = 20;			//Blocks in the x direction
+	public int worldHeight = 12;		//Blocks in the y direction
+	public int blockSize = 64;			//Block size 32x32
 
 	public Block[][] block;
 
@@ -12,7 +12,7 @@ public class Room {
 		define();
 	}
 
-	public void define() {
+	public void define() { //Produces the block pattern.
 
 		block = new Block[worldHeight][worldWidth];
 
@@ -24,7 +24,7 @@ public class Room {
 		}
 	}
 
-	public void physics() {
+	public void physics() { 
 		for (int y = 0; y < block.length; y++) {
 			for (int x = 0; x < block[0].length; x++) {
 				block[y][x].physics();
@@ -33,7 +33,7 @@ public class Room {
 
 	}
 
-	public void draw(Graphics g) {
+	public void draw(Graphics g) {  //Handles the drawing of the blocks onto the panel
 		for (int y = 0; y < block.length; y++) {
 			for (int x = 0; x < block[0].length; x++) {
 

@@ -1,5 +1,11 @@
 import java.io.*;
 import java.util.*;
+	
+	/*
+	 * This class handles the level progression. The file being loaded is the map for each level.
+	 * From the file being loaded, the data produces the map for the player.
+	 * 
+	 */
 
 public class Save {
 	public void loadSave(File loadPath) {

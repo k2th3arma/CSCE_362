@@ -13,17 +13,23 @@ public class Screen extends JPanel implements Runnable {
 	public static Image[] tileset_mob = new Image[100];
 
 	public static int myWidth, myHeight;
+	
+	//Values for starting health and money
 	public static int money = 100, health = 100;
-
+	public static int mobCount = 10;
+	
 	public static boolean isFirst = true;
-	// public static boolean isDead = false;
+	
+	//Change to true to see tower range
 	public static boolean isDebug = false;
+	public static boolean isPaused = false;
 
 	public static Room room = new Room();
 	public static Save save = new Save();
 	public static Store store = new Store();
 	public static Mob[] mobs = new Mob[100];
 
+	//Handles cursor location
 	public static Point mse = new Point(0, 0);
 
 	public Screen(Frame frame) {
@@ -34,30 +40,36 @@ public class Screen extends JPanel implements Runnable {
 		thread.start();
 
 	}
+	
+	//Test method, remove later or reuse
+	public static void gameState(){
+		isPaused = true;
+	}
 
 	public void define() {
 		room = new Room();
 		save = new Save();
 		store = new Store();
-
-		for (int i = 0; i < back_ground.length; i++) {
+		
+		
+		for (int i = 0; i < back_ground.length; i++) { //Pulls blocks from resources folder
 			back_ground[i] = new ImageIcon("Resources/Test.png").getImage();
 			back_ground[i] = createImage(
 					new FilteredImageSource(back_ground[i].getSource(), new CropImageFilter(0, 43 * i, 32, 32)));
 		}
-		for (int i = 0; i < tileset_air.length; i++) {
+		for (int i = 0; i < tileset_air.length; i++) { //Pulls blocks from resources folder
 			tileset_air[i] = new ImageIcon("Resources/Air.png").getImage();
 			tileset_air[i] = createImage(
 					new FilteredImageSource(tileset_air[i].getSource(), new CropImageFilter(0, 43 * i, 32, 32)));
 		}
 
-		tileset_store[0] = new ImageIcon("Resources/Store.png").getImage();
-		tileset_store[1] = new ImageIcon("Resources/Heart.png").getImage();
-		tileset_store[2] = new ImageIcon("Resources/Coin.png").getImage();
+		tileset_store[0] = new ImageIcon("Resources/Store.png").getImage(); //Pulls store place holder from resources folder
+		tileset_store[1] = new ImageIcon("Resources/Heart.png").getImage(); //Pulls heart icon from resources folder
+		tileset_store[2] = new ImageIcon("Resources/Coin.png").getImage(); //Pulls coin icon from resources folder
 
-		tileset_mob[0] = new ImageIcon("Resources/Mob.png").getImage();
+		tileset_mob[0] = new ImageIcon("Resources/Mob.png").getImage(); //Pulls mob icon from resources folder
 
-		save.loadSave(new File("save/mission.td"));
+		save.loadSave(new File("save/mission.td")); 
 
 		for (int i = 0; i < mobs.length; ++i) {
 			mobs[i] = new Mob();
@@ -73,10 +85,13 @@ public class Screen extends JPanel implements Runnable {
 
 			isFirst = false;
 		}
-
-		g.setColor(new Color(50, 50, 50));
+		
+		//Background
+		g.setColor(new Color(50, 50, 50)); 
 		g.fillRect(0, 0, getWidth(), getHeight());
-		g.setColor(new Color(0, 0, 0));
+		
+		//Left and right border of the blocks
+		g.setColor(new Color(0, 0, 0)); 
 		g.drawLine(room.block[0][0].x - 1, 0, room.block[0][0].x - 1,
 				room.block[room.worldHeight - 1][0].y + room.blockSize);
 		g.drawLine(room.block[0][room.worldWidth - 1].x + room.blockSize, 0,
@@ -84,7 +99,8 @@ public class Screen extends JPanel implements Runnable {
 				room.block[room.worldHeight - 1][0].y + room.blockSize);
 
 		room.draw(g); // Drawing rooms
-
+		
+		//Draws mobs
 		for (int i = 0; i < mobs.length; ++i) {
 			if (mobs[i].inGame) {
 				mobs[i].draw(g);
@@ -92,7 +108,8 @@ public class Screen extends JPanel implements Runnable {
 		}
 
 		store.draw(g); // Drawing the store
-
+		
+		//Produces game over screen
 		if (health < 1) {
 			g.setColor(new Color(240, 20, 20));
 			g.fillRect(0, 0, myWidth, myHeight);
@@ -101,29 +118,13 @@ public class Screen extends JPanel implements Runnable {
 			g.drawString("Game Over", 10, 10);
 		}
 	}
-
-	public int spawnTime = 2600, spawnFrame = 0;
-
-	public void mobSpanwer() { // Spawns mobs
-		if (spawnFrame >= spawnTime) {
-			for (int i = 0; i < mobs.length; ++i) {
-				if (!mobs[i].inGame) {
-					mobs[i].spawnMob(Value.mobBlue);
-					break;
-				}
-			}
-
-			spawnFrame = 0;
-		} else {
-			spawnFrame += 1;
-		}
-	}
-
+	
+	
 	public void run() { // Game Loop
 		while (true) {
 			if (!isFirst && health > 0) {
 				room.physics();
-				mobSpanwer();
+				Wave.waveControl();
 				for (int i = 0; i < mobs.length; ++i) {
 					if (mobs[i].inGame) {
 						mobs[i].physics();

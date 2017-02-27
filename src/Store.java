@@ -12,10 +12,13 @@ public class Store {
 	public static int itemIn = 4;
 	public static int heldID = -1;
 	public static int realID = -1;
+	
+	//Finds the values for the icons being placed in the store bar
 	public static int[] buttonID = { Value.airTowerLaser, Value.airAir, Value.airAir, Value.airAir, Value.airAir,
-			Value.airAir, Value.airAir, Value.airTrashCan };
-
-	public static int[] buttonPrice = { 10, 0, 0, 0, 0, 0, 0, 0 };
+			Value.airAir, Value.airAir, Value.airTrashCan }; 
+	
+	// The cost of each of the boxes on the store bar
+	public static int[] buttonPrice = { 10, 0, 0, 0, 0, 0, 0, 0 }; 
 	public static int[] buttonId = new int[shopWidth];
 
 	public Rectangle[] button = new Rectangle[shopWidth];
@@ -28,7 +31,7 @@ public class Store {
 		define();
 	}
 
-	public void click(int mouseButton) {
+	public void click(int mouseButton) {		//Handles the whether a tower is being selected and controls purchasing 
 		if (mouseButton == 1) {
 			for (int i = 0; i < button.length; ++i) {
 				if (button[i].contains(Screen.mse)) {
@@ -62,7 +65,7 @@ public class Store {
 		}
 	}
 
-	public void define() {
+	public void define() {			//Produces the store bar
 		for (int i = 0; i < button.length; i++) {
 			button[i] = new Rectangle(
 					Screen.myWidth / 2 - ((shopWidth * (buttonSize + cellSpace)) / 2) + (buttonSize + cellSpace) * i,
@@ -76,7 +79,7 @@ public class Store {
 				iconSize);
 	}
 
-	public void draw(Graphics g) {
+	public void draw(Graphics g) {  //Draws images for the store class
 
 		for (int i = 0; i < button.length; i++) {
 			if (button[i].contains(Screen.mse)) {

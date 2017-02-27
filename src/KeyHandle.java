@@ -19,7 +19,7 @@ public class KeyHandle implements MouseMotionListener, MouseListener {
 	}
 
 	@Override
-	public void mousePressed(MouseEvent e) {
+	public void mousePressed(MouseEvent e) { //Handles mouse pressing 
 		Screen.store.click(e.getButton());
 
 	}
@@ -30,14 +30,14 @@ public class KeyHandle implements MouseMotionListener, MouseListener {
 	}
 
 	@Override
-	public void mouseDragged(MouseEvent e) {
+	public void mouseDragged(MouseEvent e) { //Handles mouse dragging 
 		Screen.mse = new Point((e.getX()) - ((Frame.size.width - Screen.myWidth) / 2),
 				(e.getY()) - ((Frame.size.height - (Screen.myHeight)) - (Frame.size.width - Screen.myWidth) / 2));
 
 	}
 
 	@Override
-	public void mouseMoved(MouseEvent e) {
+	public void mouseMoved(MouseEvent e) { //handles mouse movement
 		Screen.mse = new Point((e.getX()) - ((Frame.size.width - Screen.myWidth) / 2),
 				(e.getY()) - ((Frame.size.height - (Screen.myHeight)) - (Frame.size.width - Screen.myWidth) / 2));
 

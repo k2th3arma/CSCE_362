@@ -7,30 +7,29 @@ import java.io.File;
 
 public class Frame extends JFrame {
 
-	public static String title = "TD";
-	public static Dimension size = new Dimension(1300, 900);
+	public static String title = "TD";	//The title for the application
+	public static Dimension size = new Dimension(1300, 900);// the Dimensions of the application
 
 	public Frame() {
+		
 		setTitle(title);
 		setSize(size);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		
-
 		init();
 		
 		lay();
 	}
 
-	public void lay() {
+	public void lay() {				//Background image, Needs applied to be behind the game panel
 
 		BufferedImage img = null;
 		try {
 			File f = new File("Resources/FB.jpg");
 			img = ImageIO.read(f);
-			System.out.println("File " + f.toString());
+			//System.out.println("File " + f.toString());
 		} catch (Exception e) {
 			System.out.println("Cannot read file: " + e);
 		}
@@ -45,7 +44,7 @@ public class Frame extends JFrame {
 
 	}
 
-	public void init() {
+	public void init() {		//produces the layout for the game panel
 
 		setLayout(new GridLayout(1, 1, 0, 0));
 
@@ -56,8 +55,9 @@ public class Frame extends JFrame {
 	}
 
 	public static void main(String args[]) {
-		Frame frame = new Frame();
-
+		Menu menu = new Menu();
+		
+		
 	}
 
 }
