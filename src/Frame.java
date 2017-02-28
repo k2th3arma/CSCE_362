@@ -1,14 +1,13 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class Frame extends JFrame {
 
 	public static String title = "TD";	//The title for the application
-	public static Dimension size = new Dimension(1300, 900);// the Dimensions of the application
+	public static Dimension size = new Dimension(1300, 950);// the Dimensions of the application
 
 	public Frame() {
 		

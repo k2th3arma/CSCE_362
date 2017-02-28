@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="Block" project="TowerDef" file="/TowerDef/src/Block.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="791" y="836"/>    
+    <position height="-1" width="-1" x="1208" y="171"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="Frame" project="TowerDef" file="/TowerDef/src/Frame.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="348" y="-5"/>    
+    <position height="-1" width="-1" x="584" y="-18"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="KeyHandle" project="TowerDef" file="/TowerDef/src/KeyHandle.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="400" y="270"/>    
+    <position height="-1" width="-1" x="364" y="557"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="Mob" project="TowerDef" file="/TowerDef/src/Mob.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="626" y="716"/>    
+    <position height="-1" width="-1" x="816" y="682"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="Room" project="TowerDef" file="/TowerDef/src/Room.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="785" y="570"/>    
+    <position height="-1" width="-1" x="994" y="109"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="Save" project="TowerDef" file="/TowerDef/src/Save.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="944" y="528"/>    
+    <position height="-1" width="-1" x="989" y="-54"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="Screen" project="TowerDef" file="/TowerDef/src/Screen.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="726" y="186"/>    
+    <position height="-1" width="-1" x="741" y="99"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="Store" project="TowerDef" file="/TowerDef/src/Store.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="382" y="683"/>    
+    <position height="-1" width="-1" x="641" y="618"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="Value" project="TowerDef" file="/TowerDef/src/Value.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="481" y="23"/>    
+    <position height="-1" width="-1" x="466" y="54"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="Wave" project="TowerDef" file="/TowerDef/src/Wave.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="983" y="80"/>    
+    <position height="-1" width="-1" x="336" y="91"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -102,7 +102,7 @@
   </class>  
   <class id="12" language="java" name="Menu" project="TowerDef" file="/TowerDef/src/Menu.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1238" y="105"/>    
+    <position height="-1" width="-1" x="107" y="582"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -112,10 +112,10 @@
   <association id="13">    
     <end type="SOURCE" refId="8" navigable="false">      
       <attribute id="14" name="mobs">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="190" y="-34"/>      
       </attribute>      
       <multiplicity id="15" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="190" y="-34"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
@@ -124,10 +124,10 @@
   <association id="16">    
     <end type="SOURCE" refId="8" navigable="false">      
       <attribute id="17" name="room">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="209" y="-461"/>      
       </attribute>      
       <multiplicity id="18" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="209" y="-461"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
@@ -136,10 +136,10 @@
   <association id="19">    
     <end type="SOURCE" refId="6" navigable="false">      
       <attribute id="20" name="block">        
-        <position height="0" width="0" x="1" y="47"/>      
+        <position height="0" width="0" x="418" y="-618"/>      
       </attribute>      
       <multiplicity id="21" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="1" y="47"/>      
+        <position height="0" width="0" x="418" y="-618"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
@@ -148,10 +148,10 @@
   <association id="22">    
     <end type="SOURCE" refId="8" navigable="false">      
       <attribute id="23" name="save">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="45" y="-582"/>      
       </attribute>      
       <multiplicity id="24" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="45" y="-582"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
@@ -160,10 +160,10 @@
   <association id="25">    
     <end type="SOURCE" refId="8" navigable="false">      
       <attribute id="26" name="store">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="259" y="-65"/>      
       </attribute>      
       <multiplicity id="27" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="259" y="-65"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    

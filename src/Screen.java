@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.*;
 import java.io.*;
-import java.awt.event.*;
 
 public class Screen extends JPanel implements Runnable {
 	public Thread thread = new Thread(this);
@@ -15,13 +14,14 @@ public class Screen extends JPanel implements Runnable {
 	public static int myWidth, myHeight;
 	
 	//Values for starting health and money
-	public static int money = 100, health = 100;
-	public static int mobCount = 10;
+	public static int money = 100, health = 100, score = 0;
 	
 	public static boolean isFirst = true;
 	
 	//Change to true to see tower range
 	public static boolean isDebug = false;
+	
+	//Controls whether game is looping or not
 	public static boolean isPaused = false;
 
 	public static Room room = new Room();
@@ -32,51 +32,59 @@ public class Screen extends JPanel implements Runnable {
 	//Handles cursor location
 	public static Point mse = new Point(0, 0);
 
+	//Sets listeners
 	public Screen(Frame frame) {
-
 		frame.addMouseListener(new KeyHandle());
 		frame.addMouseMotionListener(new KeyHandle());
-
 		thread.start();
-
 	}
 	
 	//Test method, remove later or reuse
 	public static void gameState(){
 		isPaused = true;
 	}
-
+	
+	//Component that calls drawing classes
 	public void define() {
 		room = new Room();
 		save = new Save();
 		store = new Store();
-		
-		
-		for (int i = 0; i < back_ground.length; i++) { //Pulls blocks from resources folder
+				
+		//Pulls tile blocks from resources folder
+		for (int i = 0; i < back_ground.length; i++) { 
 			back_ground[i] = new ImageIcon("Resources/Test.png").getImage();
 			back_ground[i] = createImage(
 					new FilteredImageSource(back_ground[i].getSource(), new CropImageFilter(0, 43 * i, 32, 32)));
 		}
-		for (int i = 0; i < tileset_air.length; i++) { //Pulls blocks from resources folder
+		
+		//Pulls air blocks from resources folder
+		for (int i = 0; i < tileset_air.length; i++) { 
 			tileset_air[i] = new ImageIcon("Resources/Air.png").getImage();
 			tileset_air[i] = createImage(
 					new FilteredImageSource(tileset_air[i].getSource(), new CropImageFilter(0, 43 * i, 32, 32)));
 		}
-
+		
+		//Store images, these contain any images that are under the game panel
 		tileset_store[0] = new ImageIcon("Resources/Store.png").getImage(); //Pulls store place holder from resources folder
 		tileset_store[1] = new ImageIcon("Resources/Heart.png").getImage(); //Pulls heart icon from resources folder
 		tileset_store[2] = new ImageIcon("Resources/Coin.png").getImage(); //Pulls coin icon from resources folder
-
-		tileset_mob[0] = new ImageIcon("Resources/Mob.png").getImage(); //Pulls mob icon from resources folder
-
+		tileset_store[3] = new ImageIcon("Resources/Point.png").getImage();
+		tileset_store[4] = new ImageIcon("Resources/Wave.png").getImage();
+		
+		//Mob Images
+		tileset_mob[0] = new ImageIcon("Resources/MobBlue.png").getImage(); 
+		tileset_mob[1] = new ImageIcon("Resources/MobRed.png").getImage();
+		tileset_mob[2] = new ImageIcon("Resources/MobGreen.png").getImage();
+		
+		//Loads the level layout
 		save.loadSave(new File("save/mission.td")); 
 
 		for (int i = 0; i < mobs.length; ++i) {
 			mobs[i] = new Mob();
 		}
-
 	}
-
+	
+	//Draws the panel
 	public void paintComponent(Graphics g) {
 		if (isFirst) {
 			myWidth = getWidth();
@@ -86,7 +94,7 @@ public class Screen extends JPanel implements Runnable {
 			isFirst = false;
 		}
 		
-		//Background
+		//Background		
 		g.setColor(new Color(50, 50, 50)); 
 		g.fillRect(0, 0, getWidth(), getHeight());
 		
@@ -106,7 +114,6 @@ public class Screen extends JPanel implements Runnable {
 				mobs[i].draw(g);
 			}
 		}
-
 		store.draw(g); // Drawing the store
 		
 		//Produces game over screen
@@ -119,8 +126,8 @@ public class Screen extends JPanel implements Runnable {
 		}
 	}
 	
-	
-	public void run() { // Game Loop
+	// Game Loop
+	public void run() { 
 		while (true) {
 			if (!isFirst && health > 0) {
 				room.physics();
@@ -131,13 +138,11 @@ public class Screen extends JPanel implements Runnable {
 					}
 				}
 			}
-
 			repaint();
-
 			try {
 				Thread.sleep(1);
 			} catch (Exception e) {
 			}
 		}
-	}
+	}	
 }

@@ -1,4 +1,3 @@
-
 import java.awt.*;
 
 public class Room {
@@ -11,11 +10,10 @@ public class Room {
 	public Room() {
 		define();
 	}
-
-	public void define() { //Produces the block pattern.
-
+	
+	//Produces the block pattern.
+	public void define() { 
 		block = new Block[worldHeight][worldWidth];
-
 		for (int y = 0; y < block.length; y++) {
 			for (int x = 0; x < block[0].length; x++) {
 				block[y][x] = new Block((Screen.myWidth / 2) - ((worldWidth * blockSize) / 2) + (x * blockSize),
@@ -30,22 +28,19 @@ public class Room {
 				block[y][x].physics();
 			}
 		}
-
 	}
-
-	public void draw(Graphics g) {  //Handles the drawing of the blocks onto the panel
+	
+	//Handles the drawing of the blocks onto the panel
+	public void draw(Graphics g) {  
 		for (int y = 0; y < block.length; y++) {
 			for (int x = 0; x < block[0].length; x++) {
-
 				block[y][x].draw(g);
 			}
 		}
 		for (int y = 0; y < block.length; y++) {
 			for (int x = 0; x < block[0].length; x++) {
-
 				block[y][x].fight(g);
 			}
 		}
-
 	}
 }

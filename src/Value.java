@@ -1,5 +1,5 @@
 
-public class Value { //holds values for the graphics based on missio.td
+public class Value { //holds values for the graphics based on mission.td
 	
 	//The basics blocks used for mobs and placing towers. Will be transparent
 	public static int groundGrass = 0;
@@ -14,13 +14,20 @@ public class Value { //holds values for the graphics based on missio.td
 	
 	//Mob values
 	public static int mobBlue = 0;
+	public static int mobRed = 1;
+	public static int mobGreen = 2;
 	
+	public static double health = 100;
+		
 	//Tower Values
 	public static int airTowerLaser = 2;
-	public static int towerAtk = 5;
+	public static int towerAtk = 10;
 	
 	//Rewards for killing mobs. This is based on mobID's
-	public static int[] deathReward = {5};
+	public static int[] deathReward = {5, 5, 5};
+	
+	//Mob Toughness. This is based on mobID's
+	public static int[] tMob = {2, 5, 7};
 	
 	
 	

@@ -20,18 +20,23 @@ public class Store {
 	// The cost of each of the boxes on the store bar
 	public static int[] buttonPrice = { 10, 0, 0, 0, 0, 0, 0, 0 }; 
 	public static int[] buttonId = new int[shopWidth];
-
-	public Rectangle[] button = new Rectangle[shopWidth];
+	
+	//Creates rectangles for the values
 	public Rectangle buttonHealth;
 	public Rectangle buttonCoins;
-
+	public Rectangle buttonScore; 	
+	public Rectangle buttonWave;
+	
+	public Rectangle[] button = new Rectangle[shopWidth];
+	
 	public boolean holdsItem = false;
 
 	public Store() {
 		define();
 	}
-
-	public void click(int mouseButton) {		//Handles the whether a tower is being selected and controls purchasing 
+	
+	//Handles whether a tower is being selected and controls purchasing
+	public void click(int mouseButton) {		 
 		if (mouseButton == 1) {
 			for (int i = 0; i < button.length; ++i) {
 				if (button[i].contains(Screen.mse)) {
@@ -64,8 +69,9 @@ public class Store {
 			}
 		}
 	}
-
-	public void define() {			//Produces the store bar
+	
+	//Produces the store bar
+	public void define() {			
 		for (int i = 0; i < button.length; i++) {
 			button[i] = new Rectangle(
 					Screen.myWidth / 2 - ((shopWidth * (buttonSize + cellSpace)) / 2) + (buttonSize + cellSpace) * i,
@@ -73,20 +79,21 @@ public class Store {
 							+ awayFromRoom,
 					buttonSize, buttonSize);
 		}
-
+		
+		//Controls placement for the values, such as health and money.
 		buttonHealth = new Rectangle(Screen.room.block[0][0].x - 1, button[0].y, iconSize, iconSize);
-		buttonCoins = new Rectangle(Screen.room.block[0][0].x - 1, button[0].y + button[0].height - iconSize, iconSize,
-				iconSize);
+		buttonCoins  = new Rectangle(Screen.room.block[0][0].x - 1, button[0].y + button[0].height - iconSize, iconSize, iconSize);
+		buttonScore   = new Rectangle(Screen.room.block[0][0].x - 1, (button[0].y + button[0].height + iconSize), iconSize, iconSize);		
+		buttonWave   = new Rectangle(Screen.room.block[1][1].x - 1, button[0].y, iconSize, iconSize);
 	}
-
-	public void draw(Graphics g) {  //Draws images for the store class
-
+	
+	//Draws images for the store class
+	public void draw(Graphics g) { 
 		for (int i = 0; i < button.length; i++) {
 			if (button[i].contains(Screen.mse)) {
 				g.setColor(new Color(255, 255, 255, 100));
 				g.fillRect(button[i].x, button[i].y, button[i].width, button[i].height);
 			}
-
 			g.drawImage(Screen.tileset_store[0], button[i].x, button[i].y, button[i].width, button[i].height, null);
 			if (buttonID[i] != Value.airAir) {
 				g.drawImage(Screen.tileset_air[buttonID[i]], button[i].x, button[i].y, button[i].width - (itemIn * 2),
@@ -98,14 +105,22 @@ public class Store {
 				g.drawString(buttonPrice[i] + "#", button[i].x + itemIn, button[i].y + itemIn + 10);
 			}
 		}
-
-		g.drawImage(Screen.tileset_store[1], buttonHealth.x, buttonHealth.y, buttonHealth.width, buttonHealth.height,
-				null);
+		
+		//Draws the images associated with the appropriate text
+		g.drawImage(Screen.tileset_store[1], buttonHealth.x, buttonHealth.y, buttonHealth.width, buttonHealth.height, null);
 		g.drawImage(Screen.tileset_store[2], buttonCoins.x, buttonCoins.y, buttonCoins.width, buttonCoins.height, null);
+		g.drawImage(Screen.tileset_store[3], buttonScore.x, buttonScore.y, buttonScore.width, buttonScore.height, null);
+		g.drawImage(Screen.tileset_store[4], buttonWave.x, buttonWave.y, buttonWave.width, buttonWave.height, null);
+		
+		//sets color and font for the text
 		g.setFont(new Font("Courier New", Font.BOLD, 14));
 		g.setColor(new Color(255, 255, 255));
+		
+		//Draws values for the rectangles
 		g.drawString("" + Screen.health, buttonHealth.x + buttonHealth.width + iconSpace, buttonHealth.y + iconTextY);
 		g.drawString("" + Screen.money, buttonCoins.x + buttonCoins.width + iconSpace, buttonCoins.y + iconTextY);
+		g.drawString("" + Screen.score, buttonScore.x + buttonScore.width + iconSpace, buttonScore.y + iconTextY);
+		g.drawString("" + Wave.wave, buttonWave.x + buttonWave.width + iconSpace, buttonWave.y + iconTextY);
 
 		if (holdsItem) {
 			g.drawImage(Screen.tileset_air[heldID], Screen.mse.x - ((button[0].width - (itemIn * 2)) / 2) + itemIn,
