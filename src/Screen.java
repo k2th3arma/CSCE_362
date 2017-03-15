@@ -1,3 +1,4 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.*;
@@ -10,6 +11,8 @@ public class Screen extends JPanel implements Runnable {
 	public static Image[] tileset_air = new Image[100];
 	public static Image[] tileset_store = new Image[100];
 	public static Image[] tileset_mob = new Image[100];
+	
+	BufferedImage img = null;
 
 	public static int myWidth, myHeight;
 	
@@ -82,6 +85,14 @@ public class Screen extends JPanel implements Runnable {
 		for (int i = 0; i < mobs.length; ++i) {
 			mobs[i] = new Mob();
 		}
+	
+		try {
+			File f = new File("Resources/FB.jpg");
+			img = ImageIO.read(f);
+			//System.out.println("File " + f.toString());
+		} catch (Exception e) {
+			System.out.println("Cannot read file: " + e);
+		}
 	}
 	
 	//Draws the panel
@@ -95,8 +106,9 @@ public class Screen extends JPanel implements Runnable {
 		}
 		
 		//Background		
-		g.setColor(new Color(50, 50, 50)); 
-		g.fillRect(0, 0, getWidth(), getHeight());
+		//g.setColor(new Color(50, 50, 50)); 
+		//g.fillRect(0, 0, getWidth(), getHeight());
+		g.drawImage(img, 0, 0, null);
 		
 		//Left and right border of the blocks
 		g.setColor(new Color(0, 0, 0)); 

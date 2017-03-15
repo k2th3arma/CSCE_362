@@ -8,7 +8,7 @@ public class Frame extends JFrame {
 
 	public static String title = "TD";	//The title for the application
 	public static Dimension size = new Dimension(1300, 950);// the Dimensions of the application
-
+		
 	public Frame() {
 		
 		setTitle(title);
@@ -16,10 +16,10 @@ public class Frame extends JFrame {
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+	
 		init();
 		
-		lay();
+		//lay();
 	}
 
 	public void lay() {				//Background image, Needs applied to be behind the game panel
@@ -32,23 +32,29 @@ public class Frame extends JFrame {
 		} catch (Exception e) {
 			System.out.println("Cannot read file: " + e);
 		}
-
-//		 setLayout(new BorderLayout());
+		//g.drawImage(img, 0, 0, null);
+		
+//		 //setLayout(new BorderLayout());
 //		 BackgroundPanel background = new BackgroundPanel(img);
-//		 background.setImage(img);
-//		 setContentPane( background );
+////		 background.setImage(img);
+////		 setContentPane( background );
 //		 setVisible(true);
-//		 background.setLayout(new FlowLayout());
+////		 background.setLayout(new FlowLayout());
 //		 add(background);
 
 	}
+	
+	
 
 	public void init() {		//produces the layout for the game panel
-
+		
+		
 		setLayout(new GridLayout(1, 1, 0, 0));
-
+			
 		Screen screen = new Screen(this);
+		
 		add(screen);
+		
 
 		setVisible(true);
 	}
