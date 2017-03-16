@@ -1,8 +1,6 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
+
 
 public class Frame extends JFrame {
 
@@ -19,34 +17,10 @@ public class Frame extends JFrame {
 	
 		init();
 		
-		//lay();
 	}
-
-	public void lay() {				//Background image, Needs applied to be behind the game panel
-
-		BufferedImage img = null;
-		try {
-			File f = new File("Resources/FB.jpg");
-			img = ImageIO.read(f);
-			//System.out.println("File " + f.toString());
-		} catch (Exception e) {
-			System.out.println("Cannot read file: " + e);
-		}
-		//g.drawImage(img, 0, 0, null);
 		
-//		 //setLayout(new BorderLayout());
-//		 BackgroundPanel background = new BackgroundPanel(img);
-////		 background.setImage(img);
-////		 setContentPane( background );
-//		 setVisible(true);
-////		 background.setLayout(new FlowLayout());
-//		 add(background);
-
-	}
-	
-	
-
-	public void init() {		//produces the layout for the game panel
+	//produces the layout for the game panel
+	public void init() {		
 		
 		
 		setLayout(new GridLayout(1, 1, 0, 0));
@@ -61,8 +35,7 @@ public class Frame extends JFrame {
 
 	public static void main(String args[]) {
 		Menu menu = new Menu();
-		
-		
+
 	}
 
 }
