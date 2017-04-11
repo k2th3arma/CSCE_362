@@ -17,12 +17,12 @@ public class Screen extends JPanel implements Runnable {
 	public static int myWidth, myHeight;
 	
 	//Values for starting health and money
-	public static int money = 100, health = 100, score = 0;
+	public static long money = 2000, health = 10, score = 0;
 	
 	public static boolean isFirst = true;
 	
 	//Change to true to see tower range
-	public static boolean isDebug = false;
+	public static boolean isDebug = true;
 	
 	//Controls whether game is looping or not
 	public static boolean isPaused = false;

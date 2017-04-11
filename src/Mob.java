@@ -42,6 +42,15 @@ public class Mob extends Rectangle {
 		inGame = false;
 		direction = right;
 		mobWalk = 0;
+		
+		Screen.room.block[0][0].getMoney(mobID);
+	}
+	
+	//Checks is mob has 0 HP
+	public void checkDeath(){		
+		if(healthTemp <= 0.0 ){
+			deleteMob();
+		}
 	}
 	
 	//Reduces the players health by one when called
@@ -136,18 +145,12 @@ public class Mob extends Rectangle {
 	}
 	
 	//Controls health lose for mobs
-	public void loseHealth(int amount){
-		healthTemp = (health - (double)amount)*(healthTemp/health);	
-		health -= (double)amount;
+	public void loseHealth(double amount){
+		healthTemp = (health - amount)*(healthTemp/health);	
+		health -= amount;
 		checkDeath();
 	}
 	
-	//Checks is mob has 0 HP
-	public void checkDeath(){		
-		if(healthTemp <= 0.0 ){
-			deleteMob();
-		}
-	}
 	
 	//Ends the game if players reaches 0 HP
 	public boolean isDead(){	
