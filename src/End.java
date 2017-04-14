@@ -2,24 +2,13 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-	/*
-	 * 	The menu class produces a menu with two options. One option begins produces the game panel and initializes the game loop.
-	 * 	The other ends shuts the application down.
-	 * 
-	 * 	NOTE*
-	 * 	This Screen has the ability to lay out rules and explain the game. 
-	 */
-
 
 public class End extends JFrame implements ActionListener {
 	
 	int width = 300, height = 100;
 	
-
 	JButton play = new JButton("Yes");
 	JButton exit = new JButton("No");
-
-	static boolean window = false;
 	
 	CardLayout layout = new CardLayout();
 	
@@ -30,7 +19,6 @@ public class End extends JFrame implements ActionListener {
 
 	public End() {
 		JOptionPane.showMessageDialog(menu, "Would you like to end the game?");
-	   //hold = true;
 	    
 	    panel.setLayout(layout);
 	    layout.addLayoutComponent(panel, "Menu");
@@ -66,16 +54,16 @@ public class End extends JFrame implements ActionListener {
 
 	public void actionPerformed(ActionEvent event) {
 
-	    Object source = event.getSource();
-	    
+	    Object source = event.getSource();  
 
 	    if (source == exit) {
 	        setVisible(false);
 	    } 
 	    else if (source == play) {
 	    	setVisible(false);
-	    	FinalScreen fs = new FinalScreen();
-	    	Frame.window();
+	    	Frame.screen.remove(Frame.end);
+	    	Screen.isPaused = false;
+	    	Screen.health = 0;
 	    }
 
 

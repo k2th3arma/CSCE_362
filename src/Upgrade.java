@@ -15,23 +15,17 @@ public class Upgrade extends JFrame implements ActionListener {
 	
 	int width = 300, height = 100;
 	
-
 	JButton play = new JButton("Yes");
 	JButton exit = new JButton("No");
-
-	static boolean hold = false;
 	
 	CardLayout layout = new CardLayout();
 	
-
-	JPanel panel = new JPanel();
-	
+	JPanel panel = new JPanel();	
 	JPanel menu = new JPanel(); 
 
 	public Upgrade() {
 		JOptionPane.showMessageDialog(menu, "Upgrade your towers for $" + (1000 * Value.towerLevel) );
-	   //hold = true;
-	    
+   
 	    panel.setLayout(layout);
 	    layout.addLayoutComponent(panel, "Menu");
 	   
@@ -57,9 +51,7 @@ public class Upgrade extends JFrame implements ActionListener {
 		
 	    play.addActionListener(this);
 	    exit.addActionListener(this);
-	    
-
-	    //adding children to parent Panel
+	 
 	    panel.add(menu,"Menu");
 
 	    add(panel);

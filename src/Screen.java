@@ -19,13 +19,14 @@ public class Screen extends JPanel implements Runnable {
 	//Values for starting health and money
 	public static long money = 2000, health = 10, score = 0;
 	
+	//Debug boolean
 	public static boolean isFirst = true;
 	
 	//Change to true to see tower range
-	public static boolean isDebug = true;
+	public static boolean isDebug = false;
 	
 	//Controls whether game is looping or not
-	public static boolean isPaused = false;
+	public static boolean isPaused = true;
 
 	public static Room room = new Room();
 	public static Save save = new Save();
@@ -130,17 +131,34 @@ public class Screen extends JPanel implements Runnable {
 		
 		//Produces game over screen
 		if (health < 1) {
-			g.setColor(new Color(240, 20, 20));
-			g.fillRect(0, 0, myWidth, myHeight);
-			g.setColor(new Color(255, 255, 255));
-			g.setFont(new Font("Courier New", Font.BOLD, 14));
-			g.drawString("Game Over", 10, 10);
+			gameOver(g);
 		}
 	}
 	
+	//Handles the game over screen
+	public static void gameOver(Graphics g){
+		
+		isPaused = false;
+		Player player = new Player();
+		
+		
+		g.setColor(new Color(240, 20, 20));
+		g.fillRect(0, 0, myWidth, myHeight);
+		g.setColor(new Color(255, 255, 255));
+		g.setFont(new Font("Courier New", Font.BOLD, 80));
+		g.drawString("Game Over", 400, 425);
+		g.drawString("Score: " + Screen.score, 400, 500);
+		
+		
+		FinalScreen fs = new FinalScreen();
+	}
+	
+
+	
+	
 	// Game Loop
 	public void run() { 
-		while (true) {
+		while (isPaused) {
 			if (!isFirst && health > 0) {
 				room.physics();
 				Wave.waveControl();

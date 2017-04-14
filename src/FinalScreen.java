@@ -11,45 +11,40 @@ public class FinalScreen extends JFrame implements ActionListener{
     private final JPanel topPanel;       
     private final JPanel bottomPanel;    
     private final JButton button;         
-    private  JTextArea textField; 
+    private  JTextArea textField;
     public FinalScreen(){
 
+    	setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    	
         splitPane = new JSplitPane();
 
         topPanel = new JPanel();        
         bottomPanel = new JPanel();      
-
-     
-
-        textField = new JTextArea();    
+        textField = new JTextArea();
         button = new JButton("Exit");
-        textField.setEditable(false);
+        textField.setEditable(false);     
         
-       
-        
-        setPreferredSize(new Dimension(400, 800));     
+        setPreferredSize(new Dimension(600, 600));     
         
         getContentPane().setLayout(new GridLayout());  
        
         getContentPane().add(splitPane);               
 
-        
         splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);  
-        splitPane.setDividerLocation(700);                    
+        splitPane.setDividerLocation(500);                    
         splitPane.setTopComponent(topPanel);                  
         splitPane.setBottomComponent(bottomPanel);       
         
-        textField.setText("This is where the leader board will go, the class for this is data.java");
+        textField.setText("Rank	Score			Name" + System.lineSeparator());
         
-        bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.Y_AXIS)); 
-
-        //bottomPanel.add(scrollPane);                
+        for(int i = 0; i < Data.b.size(); ++i){
+        	textField.append(Data.b.get(i).toString() + System.lineSeparator());
+        }
+        bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.Y_AXIS));               
         
         topPanel.add(textField);
         bottomPanel.add(button);
         button.addActionListener(this);
-
-      
 
         pack();
         setVisible(true);

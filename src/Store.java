@@ -77,14 +77,7 @@ public class Store {
 
 						} else {
 							Upgrade upgrade = new Upgrade();
-							
-							if(Upgrade.hold){
 
-							}
-							
-							
-							
-							//System.out.println("true");
 						}
 					}
 				}
