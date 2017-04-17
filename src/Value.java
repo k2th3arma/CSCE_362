@@ -29,8 +29,5 @@ public class Value { //holds values for the graphics based on mission.td
 	public static int[] deathScore = {5, 10, 15};
 	
 	//Mob Toughness. This is based on mobID's
-	public static int[] tMob = {2, 5, 7};
-	
-	
-	
+	public static int[] tMob = {2, 5, 7};	
 }

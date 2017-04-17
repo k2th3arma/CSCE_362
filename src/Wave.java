@@ -124,6 +124,4 @@ public class Wave {
 			e.printStackTrace();
 		}
 	}
-
-
 }

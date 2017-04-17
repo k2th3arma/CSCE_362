@@ -106,9 +106,7 @@ public class Screen extends JPanel implements Runnable {
 			isFirst = false;
 		}
 		
-		//Background		
-		//g.setColor(new Color(50, 50, 50)); 
-		//g.fillRect(0, 0, getWidth(), getHeight());
+		//Background
 		g.drawImage(img, 0, 0, null);
 		
 		//Left and right border of the blocks
@@ -141,7 +139,6 @@ public class Screen extends JPanel implements Runnable {
 		isPaused = false;
 		Player player = new Player();
 		
-		
 		g.setColor(new Color(240, 20, 20));
 		g.fillRect(0, 0, myWidth, myHeight);
 		g.setColor(new Color(255, 255, 255));
@@ -149,12 +146,8 @@ public class Screen extends JPanel implements Runnable {
 		g.drawString("Game Over", 400, 425);
 		g.drawString("Score: " + Screen.score, 400, 500);
 		
-		
 		FinalScreen fs = new FinalScreen();
 	}
-	
-
-	
 	
 	// Game Loop
 	public void run() { 

@@ -81,7 +81,4 @@ public class Upgrade extends JFrame implements ActionListener {
 
 
 	}
-
-	
-	
 }

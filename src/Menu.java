@@ -24,9 +24,13 @@ public class Menu extends JFrame implements ActionListener {
 	JButton norm;
 	JButton hard;
 	
+	JTextArea text;
+	
 	boolean modE = false;
 	boolean modN = false;
 	boolean modH = false;
+	
+	public static String difficulty;
 
 	CardLayout layout = new CardLayout();
 	GridBagLayout L1 = new GridBagLayout();
@@ -102,6 +106,15 @@ public class Menu extends JFrame implements ActionListener {
 		c.gridy = 2;
 		menu.add(hard, c);
 		
+		text = new JTextArea("Click on tower to place." +System.lineSeparator()+ "Right click tower to upgrade.");
+		c.fill = GridBagConstraints.HORIZONTAL; 
+		c.ipady = 40;
+		c.weightx = 0.5;
+		c.gridwidth = 3;
+		c.gridx = 0;
+		c.gridy = 3;
+		menu.add(text, c);		
+		
 	    play.addActionListener(this);
 	    exit.addActionListener(this);
 	    
@@ -142,12 +155,14 @@ public class Menu extends JFrame implements ActionListener {
 	    	modE = true;
 	    	modN = false;
 	    	modH = false;
+	    	difficulty = "EASY";
 	    	shade();
 	    }
 	    else if (source == norm){
 	    	modE = false;
 	    	modN = true;
 	    	modH = false;
+	    	difficulty = "NORMAL";
 	    	shade();
 	    	
 	    }
@@ -155,6 +170,7 @@ public class Menu extends JFrame implements ActionListener {
 	    	modE = false;
 	    	modN = false;
 	    	modH = true;
+	    	difficulty = "HARD";
 	    	shade();
 	    }
 

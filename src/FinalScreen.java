@@ -10,7 +10,7 @@ public class FinalScreen extends JFrame implements ActionListener{
     private final JSplitPane splitPane;  
     private final JPanel topPanel;       
     private final JPanel bottomPanel;    
-    private final JButton button;         
+    private final JButton button; 
     private  JTextArea textField;
     public FinalScreen(){
 
@@ -38,8 +38,9 @@ public class FinalScreen extends JFrame implements ActionListener{
         textField.setText("Rank	Score			Name" + System.lineSeparator());
         
         for(int i = 0; i < Data.b.size(); ++i){
-        	textField.append(Data.b.get(i).toString() + System.lineSeparator());
+        	textField.append(Data.b.get(i).toString() + System.lineSeparator());   	
         }
+        
         bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.Y_AXIS));               
         
         topPanel.add(textField);
@@ -55,7 +56,7 @@ public class FinalScreen extends JFrame implements ActionListener{
 		Object source = event.getSource();
 		
 		if( source == button){
-			System.exit(DISPOSE_ON_CLOSE);
+			System.exit(DISPOSE_ON_CLOSE);		
 		}
 	}
 }

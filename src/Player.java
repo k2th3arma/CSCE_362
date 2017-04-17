@@ -18,8 +18,8 @@ public class Player extends JFrame{
 
 	public Player() {
 		
-		String s = "Bob";
-		s = (String)JOptionPane.showInputDialog(menu, "Whats your name?", "",
+		
+		String  s = (String)JOptionPane.showInputDialog(menu, "Whats your name?", "",
 		                    JOptionPane.PLAIN_MESSAGE);
 		
 		Data data = new Data();

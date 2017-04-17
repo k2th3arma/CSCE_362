@@ -3,19 +3,16 @@ import java.util.*;
 
 public class Data {
 	
-	private String inFile = "leaderBoard.txt";
-	private String outFile = "leaderBoard.txt";
-	
-	private final static int count = 15;
-	
 	private String name;
 	private String value;
 	private int rank;
-	
-	static String[][] board = new String[3][count];
+	private String diff;
 	
 	static ArrayList<Data> b = new ArrayList<Data>();
 	
+	static ArrayList<String> scores = tryquery.getScores(Menu.difficulty);
+	static ArrayList<String> names = tryquery.getUsernames(Menu.difficulty);
+		
 	Data d;
 	
 	public Data(){
@@ -23,44 +20,41 @@ public class Data {
 	}
 	
 	//Constructor for the leaderboard
-	public Data(int rank, String value, String name){
+	public Data(int rank, String value, String name, String diff){
 		this.setRank(rank);
 		this.setValue(value);
 		this.setName(name);
+		this.setDiff(diff);
 	}
 	
 	//Reads the previous leaderboard from the running doc
 	public void getFile() throws FileNotFoundException{
-		Scanner read = new Scanner(new File("Resources/leaderBoard.txt"));
-				
-		while(read.hasNext()){
-			d = new Data(read.nextInt(), read.next(), read.next());
+		for(int i = 0; i < scores.size();++i){
+			d = new Data(i+1, scores.get(i), names.get(i), Menu.difficulty);
 			b.add(d);
+		}	
 
-		}		
-		read.close();
 	}
 	
 	//Writes the new leaderboard to the running doc
 	public void writeFile() throws FileNotFoundException{
-		PrintWriter write = new PrintWriter(new File("Resources/leaderBoard.txt"));
-		for(Data data: b){
-			write.println(data);
-		}
-		write.close();
+
+		//tryquery.storeEntry(b);	
+		
 	}
 	
 	//Method for pulling the leaderboard 
-	public static void getBoard(){
-		//Should have have a form like setup for the data to be sent to final screen for presentation
-		for(Data data: b){
-			System.out.println(data);
+	public static void getBoard(boolean y){
+		if(y){
+			for(Data data: b){
+				System.out.println(data);
+			}
 		}
 		//Currently just a debug method to verify information
 	}
 	
 	
-	//sorts the array list and removed anything after position 10
+	//sorts the array list and removed anything after position 5
 	public void sort(){
 		Data temp = null;
 		for(int i = 0; i < b.size(); ++i){
@@ -73,27 +67,36 @@ public class Data {
 			}
 		}
 		for(int i = 0; i < b.size(); ++i){
-			d = new Data(i+1, b.get(i).getValue(), b.get(i).getName());
+			d = new Data(i+1, b.get(i).getValue(), b.get(i).getName(), b.get(i).getDiff());
 			b.set(i,d);
 		}
 	}
 	
+	public void remove(){
+		if(b.size() > 4){
+			for(int i = b.size()-1; i > 4; --i){
+				b.remove(i);
+			}
+		}
+	}
 	
 	//The "main" method, should be called out of class and initiates all other methods
 	public void compile(String name, long score) throws FileNotFoundException{
 		getFile();
 		
-		d = new Data(b.size()+1, String.valueOf(score), name);
+		d = new Data(b.size()+1, String.valueOf(score), name, Menu.difficulty);
 		b.add(d);
 		
-		sort();
+		tryquery.storeEntry(name, String.valueOf(score));
 		
-		getBoard();
+		sort();
+		remove();
+		
+		getBoard(false);//debug method
 		writeFile();
 		
 	}
-	
-	
+		
 	//Needs changed to make the output user friendly
 	@Override
 	public String toString() {
@@ -128,6 +131,10 @@ public class Data {
 	public void setRank(int rank) {
 		this.rank = rank;
 	}
-	
-	
+	public String getDiff(){
+		return diff;
+	}
+	public void setDiff(String diff){
+		this.diff = diff;
+	}	
 }
