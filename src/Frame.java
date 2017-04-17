@@ -1,14 +1,17 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Frame extends JFrame {
+
+public class Frame extends JFrame implements ActionListener {
 
 	public static String title = "TD";	//The title for the application
 	public static Dimension size = new Dimension(1300, 950);// the Dimensions of the application
-
+	
+	static JButton end = new JButton("End");
+	static Screen screen;
+		
 	public Frame() {
 		
 		setTitle(title);
@@ -16,47 +19,39 @@ public class Frame extends JFrame {
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+	
 		init();
 		
-		lay();
 	}
 
-	public void lay() {				//Background image, Needs applied to be behind the game panel
-
-		BufferedImage img = null;
-		try {
-			File f = new File("Resources/FB.jpg");
-			img = ImageIO.read(f);
-			//System.out.println("File " + f.toString());
-		} catch (Exception e) {
-			System.out.println("Cannot read file: " + e);
-		}
-
-//		 setLayout(new BorderLayout());
-//		 BackgroundPanel background = new BackgroundPanel(img);
-//		 background.setImage(img);
-//		 setContentPane( background );
-//		 setVisible(true);
-//		 background.setLayout(new FlowLayout());
-//		 add(background);
-
-	}
-
-	public void init() {		//produces the layout for the game panel
-
-		setLayout(new GridLayout(1, 1, 0, 0));
-
-		Screen screen = new Screen(this);
+	//produces the layout for the game panel
+	public void init() {		
+				
+		setLayout(new GridLayout(1,1,0,0));		
+		screen = new Screen(this);		
+		end.setBackground(Color.WHITE);
+		screen.add(end);
+		end.addActionListener(this);	
 		add(screen);
-
+		
 		setVisible(true);
 	}
+	
+	//Listener for the end button
+	public void actionPerformed(ActionEvent event) {
 
+	    Object source = event.getSource();
+	    
+	    if( source == end){
+	    	End end = new End();
+	    }
+
+	}
+	
+	//main for the game
 	public static void main(String args[]) {
 		Menu menu = new Menu();
-		
-		
+
 	}
 
 }

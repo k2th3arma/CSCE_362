@@ -42,5 +42,4 @@ public class KeyHandle implements MouseMotionListener, MouseListener {
 				(e.getY()) - ((Frame.size.height - (Screen.myHeight)) - (Frame.size.width - Screen.myWidth) / 2));
 
 	}
-
 }

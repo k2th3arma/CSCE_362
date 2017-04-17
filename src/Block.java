@@ -5,7 +5,8 @@ public class Block extends Rectangle {
 	public int airID;
 	public int shotMob = -1;
 	public int loseTime = 100, loseFrame = 0; 	//Handles Hp loss rate for mobs, Global setting
-	public int towerSquareSize = 250;			//Global tower range
+	
+	public static int towerSquareSize = 144;			//Global tower range
 	
 	public boolean shooting = false;
 	
@@ -14,7 +15,7 @@ public class Block extends Rectangle {
 	
 	public Block(int x, int y, int width, int height, int groundID, int airID) {
 		setBounds(x, y, width, height);
-		towerSquare = new Rectangle(x - (towerSquareSize/2), y - (towerSquareSize/2), width + (towerSquareSize*2), height+ (towerSquareSize*2));
+		towerSquare = new Rectangle(x - (towerSquareSize), y - (towerSquareSize), width + (towerSquareSize*2), height + (towerSquareSize*2));
 		this.groundID = groundID;
 		this.airID = airID;
 	}
@@ -56,18 +57,19 @@ public class Block extends Rectangle {
 				loseFrame += 1;
 			}
 			if(Screen.mobs[shotMob].isDead()){ //Needs a checksum for kills. One kills is giving multiple awards
-				getMoney(Screen.mobs[shotMob].mobID);
+				
 				shooting = false;
 				shotMob = -1;
+				
 			}			
 		}
 	}
 	
 	//Handles damage against mobs health, always greater than 0
-	public int damage(int x, int y){
-		int z = x - y;
+	public double damage(double x, double y){
+		double z = x - y;
 		if(z <= 0){
-			return 1;
+			return 1.0;
 		}
 		else{
 			return z;			
@@ -77,7 +79,7 @@ public class Block extends Rectangle {
 	//Handles money and score distribution after mob is removed
 	public void getMoney(int mobID){ 
 		Screen.money += Value.deathReward[mobID];
-		Screen.score += Value.deathReward[mobID];
+		Screen.score += Value.deathScore[mobID];
 	}
 	
 	//Draws graphics related to shooting

@@ -20,15 +20,14 @@ public class Value { //holds values for the graphics based on mission.td
 	public static double health = 100;
 		
 	//Tower Values
+	public static int towerLevel = 1;
 	public static int airTowerLaser = 2;
 	public static int towerAtk = 10;
 	
 	//Rewards for killing mobs. This is based on mobID's
 	public static int[] deathReward = {5, 5, 5};
+	public static int[] deathScore = {5, 10, 15};
 	
 	//Mob Toughness. This is based on mobID's
-	public static int[] tMob = {2, 5, 7};
-	
-	
-	
+	public static int[] tMob = {2, 5, 7};	
 }

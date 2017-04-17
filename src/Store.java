@@ -68,6 +68,21 @@ public class Store {
 				}
 			}
 		}
+		else if (mouseButton == 3) {
+			for (int i = 0; i < button.length; ++i) {
+				if (button[i].contains(Screen.mse)) {
+					if (buttonID[i] != Value.airAir) {
+						if (buttonID[i] == Value.airTrashCan) {
+							holdsItem = false;
+
+						} else {
+							Upgrade upgrade = new Upgrade();
+
+						}
+					}
+				}
+			}
+		}	
 	}
 	
 	//Produces the store bar
@@ -102,7 +117,8 @@ public class Store {
 			if (buttonPrice[i] > 0) {
 				g.setColor(new Color(255, 255, 255));
 				g.setFont(new Font("Courier New", Font.BOLD, 14));
-				g.drawString(buttonPrice[i] + "#", button[i].x + itemIn, button[i].y + itemIn + 10);
+				g.drawString("$" + buttonPrice[i], button[i].x + itemIn, button[i].y + itemIn + 10);
+				g.drawString("Lvl: " + Value.towerLevel, button[i].x + itemIn, button[i].y + itemIn + 50);
 			}
 		}
 		
