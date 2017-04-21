@@ -1,0 +1,7 @@
+WARNING - 14:07:33: First conversion pass
+ERROR - 14:07:33: org.xml.sax.SAXParseExceptionpublicId: /TowerDef/src/Frame.java; systemId: file:///TowerDef/src/Frame.java; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
+ERROR - 14:07:33: org.xml.sax.SAXParseExceptionpublicId: /TowerDef/src/Frame.java; systemId: file:///TowerDef/src/Frame.java; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
+WARNING - 14:07:36: Convert 
+WARNING - 14:07:36: First conversion pass
+ERROR - 14:07:36: org.xml.sax.SAXParseExceptionpublicId: /TowerDef/src/Frame.java; systemId: file:///TowerDef/src/Frame.java; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
+ERROR - 14:07:36: org.xml.sax.SAXParseExceptionpublicId: /TowerDef/src/Frame.java; systemId: file:///TowerDef/src/Frame.java; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
