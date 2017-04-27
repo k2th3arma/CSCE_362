@@ -137,6 +137,8 @@ public class Screen extends JPanel implements Runnable {
 	public static void gameOver(Graphics g){
 		
 		isPaused = false;
+		Boolean flag = true;
+		if(flag){
 		Player player = new Player();
 		
 		g.setColor(new Color(240, 20, 20));
@@ -147,6 +149,8 @@ public class Screen extends JPanel implements Runnable {
 		g.drawString("Score: " + Screen.score, 400, 500);
 		
 		FinalScreen fs = new FinalScreen();
+		flag = false;
+		}
 	}
 	
 	// Game Loop
