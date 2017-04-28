@@ -149,6 +149,7 @@ public class Screen extends JPanel implements Runnable {
 		g.drawString("Score: " + Screen.score, 400, 500);
 		
 		FinalScreen fs = new FinalScreen();
+		Frame.screen.remove(Frame.end);
 		flag = false;
 		}
 	}

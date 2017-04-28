@@ -127,7 +127,7 @@ public class Mob extends Rectangle {
 					}
 				}
 				if (Screen.room.block[yC][xC].airID == Value.airCave) {
-					deleteMob();
+					removeMob();
 					looseHealth();
 				}
 				
@@ -143,6 +143,12 @@ public class Mob extends Rectangle {
 			walkFrame += 1;
 		}
 	}
+	public void removeMob() { 
+		inGame = false;
+		direction = right;
+		mobWalk = 0;
+		
+		}
 	
 	//Controls health lose for mobs
 	public void loseHealth(double amount){
